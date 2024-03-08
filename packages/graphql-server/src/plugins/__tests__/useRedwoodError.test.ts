@@ -1,20 +1,20 @@
 import type { APIGatewayProxyEvent, Context } from 'aws-lambda'
 import { CurrencyDefinition, CurrencyResolver } from 'graphql-scalars'
+import { vi, describe, it, expect } from 'vitest'
 
 import { createLogger } from '@redwoodjs/api/logger'
 
 import { createGraphQLHandler } from '../../functions/graphql'
 
-jest.mock('../../makeMergedSchema', () => {
-  const { createGraphQLError } = require('graphql-yoga')
-  const { makeExecutableSchema } = require('@graphql-tools/schema')
-  const {
-    ForbiddenError,
-    RedwoodGraphQLError,
-  } = require('@redwoodjs/graphql-server/dist/errors')
-  const { EmailValidationError, RedwoodError } = require('@redwoodjs/api')
+vi.mock('../../makeMergedSchema', async () => {
+  const { createGraphQLError } = await import('graphql-yoga')
+  const { makeExecutableSchema } = await import('@graphql-tools/schema')
+  const { ForbiddenError, RedwoodGraphQLError } = await import(
+    '@redwoodjs/graphql-server/dist/errors'
+  )
+  const { EmailValidationError, RedwoodError } = await import('@redwoodjs/api')
 
-  const { CurrencyResolver } = require('graphql-scalars')
+  const { CurrencyResolver } = await import('graphql-scalars')
 
   class WeatherError extends RedwoodError {
     constructor(message: string, extensions?: Record<string, any>) {
@@ -121,7 +121,7 @@ jest.mock('../../makeMergedSchema', () => {
   }
 })
 
-jest.mock('../../directives/makeDirectives', () => {
+vi.mock('../../directives/makeDirectives', () => {
   return {
     makeDirectivesForPlugin: () => [],
   }
