@@ -8385,12 +8385,12 @@ __metadata:
     graphql-scalars: "npm:1.22.4"
     graphql-tag: "npm:2.12.6"
     graphql-yoga: "npm:5.1.1"
-    jest: "npm:29.7.0"
     jsonwebtoken: "npm:9.0.2"
     lodash: "npm:4.17.21"
     tsx: "npm:4.6.2"
     typescript: "npm:5.3.3"
     uuid: "npm:9.0.1"
+    vitest: "npm:1.2.2"
   languageName: unknown
   linkType: soft
 
