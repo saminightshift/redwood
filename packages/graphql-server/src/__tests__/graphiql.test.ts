@@ -1,3 +1,5 @@
+import { vi, describe, beforeAll, afterAll, it, expect } from 'vitest'
+
 import { configureGraphiQLPlayground } from '../graphiql'
 
 describe('configureGraphiQLPlayground', () => {
@@ -22,7 +24,7 @@ describe('configureGraphiQLPlayground', () => {
     it('should configure the GraphiQL Playground when allowGraphiQL is true', () => {
       const result = configureGraphiQLPlayground({
         allowGraphiQL: true,
-        generateGraphiQLHeader: jest.fn(),
+        generateGraphiQLHeader: vi.fn(),
       })
 
       expect(result).not.toBe(false)
@@ -32,7 +34,7 @@ describe('configureGraphiQLPlayground', () => {
     it('should return false when allowGraphiQL is false', () => {
       const result = configureGraphiQLPlayground({
         allowGraphiQL: false,
-        generateGraphiQLHeader: jest.fn(),
+        generateGraphiQLHeader: vi.fn(),
       })
 
       expect(result).toBe(false)
@@ -40,7 +42,7 @@ describe('configureGraphiQLPlayground', () => {
 
     it('should return false when allowGraphiQL is not provided', () => {
       const result = configureGraphiQLPlayground({
-        generateGraphiQLHeader: jest.fn(),
+        generateGraphiQLHeader: vi.fn(),
       })
 
       expect(result).toBe(false)
@@ -49,7 +51,7 @@ describe('configureGraphiQLPlayground', () => {
     it('should return false when allowGraphiQL is undefined', () => {
       const result = configureGraphiQLPlayground({
         allowGraphiQL: undefined,
-        generateGraphiQLHeader: jest.fn(),
+        generateGraphiQLHeader: vi.fn(),
       })
 
       expect(result).toBe(false)
@@ -59,7 +61,7 @@ describe('configureGraphiQLPlayground', () => {
       const result = configureGraphiQLPlayground({
         // @ts-expect-error - We don't explicitly allow null, but we will cover it in the tests anyway
         allowGraphiQL: null,
-        generateGraphiQLHeader: jest.fn(),
+        generateGraphiQLHeader: vi.fn(),
       })
 
       expect(result).toBe(false)
@@ -88,7 +90,7 @@ describe('configureGraphiQLPlayground', () => {
     it('should configure the GraphiQL Playground when allowGraphiQL is true', () => {
       const result = configureGraphiQLPlayground({
         allowGraphiQL: true,
-        generateGraphiQLHeader: jest.fn(),
+        generateGraphiQLHeader: vi.fn(),
       })
 
       expect(result).not.toBe(false)
@@ -98,7 +100,7 @@ describe('configureGraphiQLPlayground', () => {
     it('should configure the GraphiQL Playground when allowGraphiQL is false', () => {
       const result = configureGraphiQLPlayground({
         allowGraphiQL: false,
-        generateGraphiQLHeader: jest.fn(),
+        generateGraphiQLHeader: vi.fn(),
       })
 
       expect(result).toBe(false)
@@ -106,7 +108,7 @@ describe('configureGraphiQLPlayground', () => {
 
     it('should configure the GraphiQL Playground when allowGraphiQL is not provided', () => {
       const result = configureGraphiQLPlayground({
-        generateGraphiQLHeader: jest.fn(),
+        generateGraphiQLHeader: vi.fn(),
       })
 
       expect(result).not.toBe(false)
@@ -116,7 +118,7 @@ describe('configureGraphiQLPlayground', () => {
     it('should configure the GraphiQL Playground when allowGraphiQL is undefined', () => {
       const result = configureGraphiQLPlayground({
         allowGraphiQL: undefined,
-        generateGraphiQLHeader: jest.fn(),
+        generateGraphiQLHeader: vi.fn(),
       })
 
       expect(result).not.toBe(false)
@@ -127,7 +129,7 @@ describe('configureGraphiQLPlayground', () => {
       const result = configureGraphiQLPlayground({
         // @ts-expect-error - We don't explicitly allow null, but we will cover it in the tests anyway
         allowGraphiQL: null,
-        generateGraphiQLHeader: jest.fn(),
+        generateGraphiQLHeader: vi.fn(),
       })
 
       expect(result).not.toBe(false)
