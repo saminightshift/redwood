@@ -1,6 +1,7 @@
 import { useEngine } from '@envelop/core'
 import { createSpiedPlugin, createTestkit } from '@envelop/testing'
 import * as GraphQLJS from 'graphql'
+import { describe, beforeEach, it, expect } from 'vitest'
 
 import { testSchema, testQuery } from '../__fixtures__/common'
 import { useRedwoodPopulateContext } from '../useRedwoodPopulateContext'
